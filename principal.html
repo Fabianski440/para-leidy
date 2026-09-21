@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Para Leidy 🌻</title>
+
+    <style>
+
+        /* =========================
+           CONFIGURACIÓN GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+
+            min-height: 100vh;
+            min-height: 100dvh;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #171b35 0%,
+                    #080a18 45%,
+                    #03040b 100%
+                );
+
+            font-family: Arial, sans-serif;
+
+            color: white;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           CONTENEDOR
+        ========================= */
+
+        .contenedor {
+
+            width: 100%;
+
+            min-height: 100vh;
+            min-height: 100dvh;
+
+            padding: 20px 15px 35px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        /* =========================
+           TITULO
+        ========================= */
+
+        .titulo {
+
+            width: 100%;
+
+            text-align: center;
+
+            margin-bottom: 20px;
+
+            animation: aparecer 1.5s ease;
+        }
+
+
+        .titulo h1 {
+
+            color: #ffd21f;
+
+            font-size: clamp(
+                28px,
+                8vw,
+                42px
+            );
+
+            line-height: 1.2;
+
+            text-shadow:
+                0 0 10px #ffd21f,
+                0 0 25px rgba(
+                    255,
+                    210,
+                    31,
+                    0.5
+                );
+        }
+
+
+        .titulo p {
+
+            margin-top: 10px;
+
+            color: #eeeeee;
+
+            font-size: 17px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           FLORES PRINCIPALES
+        ========================= */
+
+        .flores {
+
+            width: 100%;
+
+            max-width: 550px;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 0 20px rgba(
+                    255,
+                    210,
+                    31,
+                    0.25
+                ),
+                0 0 50px rgba(
+                    255,
+                    210,
+                    31,
+                    0.10
+                );
+
+            animation:
+                aparecerFlores 1.8s ease;
+        }
+
+
+        .flores img {
+
+            width: 100%;
+
+            height: auto;
+
+            display: block;
+        }
+
+
+        /* =========================
+           CARTA
+        ========================= */
+
+        .carta-container {
+
+            margin-top: 28px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            animation:
+                aparecerCarta 2s ease;
+        }
+
+
+        .carta {
+
+            width: 230px;
+
+            height: 160px;
+
+            cursor: pointer;
+
+            touch-action: manipulation;
+
+            transition:
+                transform 0.25s ease;
+        }
+
+
+        .carta:active {
+
+            transform:
+                scale(0.94);
+        }
+
+
+        /* =========================
+           SOBRE
+        ========================= */
+
+        .sobre {
+
+            width: 100%;
+
+            height: 100%;
+
+            position: relative;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff9dc,
+                    #ffe27a
+                );
+
+            border:
+                2px solid #ffd21f;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 12px 30px rgba(
+                    0,
+                    0,
+                    0,
+                    0.55
+                ),
+                0 0 25px rgba(
+                    255,
+                    210,
+                    31,
+                    0.35
+                );
+        }
+
+
+        .sobre::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 0;
+            height: 0;
+
+            border-left:
+                115px solid transparent;
+
+            border-right:
+                115px solid transparent;
+
+            border-top:
+                78px solid #ffd76a;
+
+            z-index: 2;
+        }
+
+
+        .sobre::after {
+
+            content: "";
+
+            position: absolute;
+
+            bottom: 0;
+            left: 0;
+
+            width: 0;
+            height: 0;
+
+            border-left:
+                115px solid transparent;
+
+            border-right:
+                115px solid transparent;
+
+            border-bottom:
+                82px solid #ffc928;
+
+            z-index: 1;
+        }
+
+
+        .corazon-carta {
+
+            position: relative;
+
+            z-index: 5;
+
+            font-size: 43px;
+
+            margin-top: 15px;
+
+            animation:
+                latido 1.5s infinite;
+        }
+
+
+        .texto-sobre {
+
+            position: relative;
+
+            z-index: 5;
+
+            margin-top: 3px;
+
+            color: #624900;
+
+            font-size: 18px;
+
+            font-weight: bold;
+        }
+
+
+        .texto-carta {
+
+            margin-top: 12px;
+
+            color: #ffd21f;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            animation:
+                parpadear 2s infinite;
+        }
+
+
+        /* =========================
+           BOTÓN
+        ========================= */
+
+        .boton {
+
+            margin-top: 25px;
+
+            padding: 15px 28px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffd21f,
+                    #ffb300
+                );
+
+            color: #332500;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            touch-action: manipulation;
+
+            box-shadow:
+                0 0 18px rgba(
+                    255,
+                    210,
+                    31,
+                    0.45
+                );
+
+            transition:
+                transform 0.2s ease;
+        }
+
+
+        .boton:active {
+
+            transform:
+                scale(0.94);
+        }
+
+
+        /* =========================
+           VENTANA FOTO
+        ========================= */
+
+        .modal {
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background:
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.90
+                );
+
+            backdrop-filter:
+                blur(7px);
+
+            -webkit-backdrop-filter:
+                blur(7px);
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            z-index: 1000;
+        }
+
+
+        .modal.mostrar {
+
+            display: flex;
+
+            animation:
+                aparecerModal 0.45s ease;
+        }
+
+
+        /* =========================
+           FOTO
+        ========================= */
+
+        .recuerdo {
+
+            width: 100%;
+
+            max-width: 500px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            position: relative;
+
+            animation:
+                aparecerFoto 0.7s ease;
+        }
+
+
+        .recuerdo img {
+
+            display: block;
+
+            width: auto;
+
+            max-width: 100%;
+
+            max-height: 65vh;
+
+            object-fit: contain;
+
+            border-radius: 18px;
+
+            border:
+                3px solid #ffd21f;
+
+            box-shadow:
+                0 0 25px rgba(
+                    255,
+                    210,
+                    31,
+                    0.55
+                ),
+                0 0 60px rgba(
+                    255,
+                    210,
+                    31,
+                    0.25
+                );
+        }
+
+
+        /* =========================
+           TE AMO
+        ========================= */
+
+        .te-amo {
+
+            margin-top: 18px;
+
+            text-align: center;
+
+            color: #ffd21f;
+
+            font-size: clamp(
+                36px,
+                11vw,
+                52px
+            );
+
+            font-weight: bold;
+
+            line-height: 1;
+
+            text-shadow:
+                0 0 10px #ffd21f,
+                0 0 25px #ffb300,
+                0 0 45px rgba(
+                    255,
+                    210,
+                    31,
+                    0.5
+                );
+
+            animation:
+                teAmo 1.5s infinite;
+        }
+
+
+        /* =========================
+           CERRAR
+        ========================= */
+
+        .cerrar {
+
+            position: absolute;
+
+            top: -18px;
+
+            right: -5px;
+
+            width: 44px;
+            height: 44px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #ffd21f;
+
+            color: #332500;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            z-index: 10;
+
+            box-shadow:
+                0 0 18px rgba(
+                    255,
+                    210,
+                    31,
+                    0.6
+                );
+        }
+
+
+        .cerrar:active {
+
+            transform:
+                scale(0.9);
+        }
+
+
+        /* =================================================
+           🌻 FLORES QUE SUBEN POR TODA LA PANTALLA
+        ================================================= */
+
+        .flor-volando {
+
+            position: fixed;
+
+            bottom: -80px;
+
+            z-index: 3000;
+
+            pointer-events: none;
+
+            animation:
+                florSubiendo
+                linear
+                forwards;
+
+            will-change:
+                transform,
+                opacity;
+        }
+
+
+        @keyframes florSubiendo {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg)
+                    scale(0.7);
+
+                opacity: 0;
+            }
+
+
+            10% {
+
+                opacity: 1;
+            }
+
+
+            50% {
+
+                opacity: 1;
+            }
+
+
+            100% {
+
+                transform:
+                    translateY(-125vh)
+                    rotate(360deg)
+                    scale(1.1);
+
+                opacity: 0;
+            }
+
+        }
+
+
+        /* =========================
+           ANIMACIONES GENERALES
+        ========================= */
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-20px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes aparecerFlores {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.93);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1);
+            }
+        }
+
+
+        @keyframes aparecerCarta {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(40px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes aparecerModal {
+
+            from {
+
+                opacity: 0;
+            }
+
+            to {
+
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes aparecerFoto {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.65)
+                    translateY(40px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes latido {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(1);
+            }
+
+            50% {
+
+                transform:
+                    scale(1.15);
+            }
+        }
+
+
+        @keyframes teAmo {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(1);
+            }
+
+            50% {
+
+                transform:
+                    scale(1.07);
+            }
+        }
+
+
+        @keyframes parpadear {
+
+            0%,
+            100% {
+
+                opacity: 1;
+            }
+
+            50% {
+
+                opacity: 0.45;
+            }
+        }
+
+
+        /* =========================
+           CELULAR PEQUEÑO
+        ========================= */
+
+        @media (max-width: 360px) {
+
+            .contenedor {
+
+                padding:
+                    15px
+                    10px
+                    25px;
+            }
+
+
+            .titulo h1 {
+
+                font-size: 27px;
+            }
+
+
+            .titulo p {
+
+                font-size: 15px;
+            }
+
+
+            .carta {
+
+                width: 215px;
+
+                height: 150px;
+            }
+
+
+            .sobre::before {
+
+                border-left-width:
+                    107px;
+
+                border-right-width:
+                    107px;
+
+                border-top-width:
+                    73px;
+            }
+
+
+            .sobre::after {
+
+                border-left-width:
+                    107px;
+
+                border-right-width:
+                    107px;
+
+                border-bottom-width:
+                    77px;
+            }
+
+
+            .corazon-carta {
+
+                font-size: 38px;
+            }
+
+
+            .texto-sobre {
+
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         PÁGINA PRINCIPAL
+    ================================== -->
+
+    <main class="contenedor">
+
+
+        <!-- TITULO -->
+
+        <div class="titulo">
+
+            <h1>
+                🌻 Para Leidy 🌻
+            </h1>
+
+            <p>
+                Hice algo especialmente para ti 💛
+            </p>
+
+        </div>
+
+
+        <!-- FLORES -->
+
+        <div class="flores">
+
+            <img
+                src="leidy.png"
+                alt="Flores amarillas"
+            >
+
+        </div>
+
+
+        <!-- CARTA -->
+
+        <div class="carta-container">
+
+
+            <div
+                class="carta"
+                onclick="abrirCarta()"
+                role="button"
+                aria-label="Abrir carta"
+            >
+
+                <div class="sobre">
+
+                    <div class="corazon-carta">
+                        💛
+                    </div>
+
+                    <div class="texto-sobre">
+                        Para Leidy 💌
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="texto-carta">
+                💌 Toca la carta
+            </p>
+
+
+        </div>
+
+
+        <!-- =================================
+             BOTÓN FLORES
+        ================================== -->
+
+        <button
+            class="boton"
+            onclick="lluviaDeFlores()"
+        >
+            💛 Tengo algo para ti
+        </button>
+
+
+    </main>
+
+
+
+    <!-- =================================
+         FOTO DE USTEDES
+    ================================== -->
+
+    <div
+        id="cartaModal"
+        class="modal"
+    >
+
+
+        <div class="recuerdo">
+
+
+            <button
+                class="cerrar"
+                onclick="cerrarCarta()"
+                aria-label="Cerrar"
+            >
+                ✕
+            </button>
+
+
+            <img
+                src="nosotros.jpg"
+                alt="Foto de nosotros"
+            >
+
+
+            <div class="te-amo">
+                Te amo ❤️
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+
+
+        /* =================================
+           CARTA
+        ================================== */
+
+        function abrirCarta() {
+
+            document
+                .getElementById("cartaModal")
+                .classList.add("mostrar");
+
+        }
+
+
+        function cerrarCarta() {
+
+            document
+                .getElementById("cartaModal")
+                .classList.remove("mostrar");
+
+        }
+
+
+        /* =================================
+           CERRAR TOCANDO AFUERA
+        ================================== */
+
+        document
+            .getElementById("cartaModal")
+            .addEventListener(
+                "click",
+                function(event) {
+
+                    if (
+                        event.target === this
+                    ) {
+
+                        cerrarCarta();
+
+                    }
+
+                }
+            );
+
+
+        /* =================================================
+           🌻 LLUVIA DE FLORES
+        ================================================= */
+
+        function lluviaDeFlores() {
+
+
+            /*
+               Creamos MUCHAS flores
+               para llenar la pantalla.
+            */
+
+            for (
+                let i = 0;
+                i < 70;
+                i++
+            ) {
+
+
+                const flor =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                flor.className =
+                    "flor-volando";
+
+
+                /*
+                   Diferentes flores amarillas
+                */
+
+                const flores = [
+                    "🌻",
+                    "🌻",
+                    "🌻",
+                    "💛🌻",
+                    "🌻💛"
+                ];
+
+
+                flor.innerHTML =
+                    flores[
+                        Math.floor(
+                            Math.random() *
+                            flores.length
+                        )
+                    ];
+
+
+                /*
+                   Posición horizontal
+                   aleatoria
+                */
+
+                flor.style.left =
+                    Math.random() *
+                    100 +
+                    "vw";
+
+
+                /*
+                   Tamaño aleatorio
+                */
+
+                flor.style.fontSize =
+                    (
+                        22 +
+                        Math.random() *
+                        35
+                    ) +
+                    "px";
+
+
+                /*
+                   Cada flor tarda
+                   diferente tiempo
+                */
+
+                flor.style.animationDuration =
+                    (
+                        3 +
+                        Math.random() *
+                        4
+                    ) +
+                    "s";
+
+
+                /*
+                   Retraso aleatorio.
+                   Esto hace que no
+                   salgan todas juntas.
+                */
+
+                flor.style.animationDelay =
+                    (
+                        Math.random() *
+                        1.5
+                    ) +
+                    "s";
+
+
+                /*
+                   Rotación inicial
+                */
+
+                flor.style.transform =
+                    "rotate(" +
+                    (
+                        Math.random() *
+                        360
+                    ) +
+                    "deg)";
+
+
+                document.body.appendChild(
+                    flor
+                );
+
+
+                /*
+                   Eliminamos la flor
+                   cuando termina.
+                */
+
+                setTimeout(
+                    function() {
+
+                        flor.remove();
+
+                    },
+                    8000
+                );
+
+            }
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
